@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ランツリー | AIコーチングアプリ</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">AIコーチングアプリ</p>
+          <h1>ランツリー</h1>
+          <p class="hero-copy">
+            生徒と先生をつなぐ、練習の振り返りと成長の記録をひとつの画面で。
+          </p>
+        </div>
+        <div class="hero-badge">今日も一歩前へ</div>
+      </header>
+
+      <main class="dashboard">
+        <section class="panel overview">
+          <div class="summary-grid">
+            <article class="summary-card accent">
+              <span class="summary-label">今日の練習</span>
+              <strong id="todayDistance">0 m</strong>
+              <small>走行距離</small>
+            </article>
+            <article class="summary-card">
+              <span class="summary-label">振り返り</span>
+              <strong id="reflectionCount">0回</strong>
+              <small>AIコーチとの対話</small>
+            </article>
+            <article class="summary-card">
+              <span class="summary-label">成長の木</span>
+              <strong id="treeStage">芽</strong>
+              <small>成長段階</small>
+            </article>
+          </div>
+        </section>
+
+        <section class="panel coach-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">生徒モード</p>
+              <h2>AIコーチとの対話</h2>
+            </div>
+            <span class="status-pill">8問で振り返り完了</span>
+          </div>
+
+          <div class="coach-layout">
+            <div class="chat-card">
+              <div class="chat-header">
+                <span>AIコーチ</span>
+                <span id="chatProgress">1 / 8</span>
+              </div>
+              <div id="chatMessages" class="chat-messages"></div>
+              <form id="chatForm" class="chat-form">
+                <input id="chatInput" type="text" placeholder="今日の感想をひとこと入力" required />
+                <button type="submit">送信</button>
+              </form>
+            </div>
+            <div class="coach-side">
+              <div class="mini-card">
+                <h3>今日の問い</h3>
+                <p id="currentPrompt">今日の練習で一番意識したことは？</p>
+              </div>
+              <div class="mini-card">
+                <h3>AI要約</h3>
+                <p id="latestSummary">まだ振り返りがありません。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel record-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">練習記録</p>
+              <h2>すばやく記録する</h2>
+            </div>
+          </div>
+
+          <div class="record-layout">
+            <div class="record-form">
+              <label>
+                <span>走行距離</span>
+                <input id="distanceRange" type="range" min="400" max="2000" step="100" value="1200" />
+                <strong id="distanceValue">1200 m</strong>
+              </label>
+              <label>
+                <span>コンディション</span>
+                <input id="conditionRange" type="range" min="1" max="5" step="1" value="3" />
+                <strong id="conditionValue">かなり良い</strong>
+              </label>
+              <label class="toggle-row">
+                <input id="pbToggle" type="checkbox" />
+                <span>自己ベスト更新</span>
+              </label>
+              <button id="saveRecordBtn" class="primary-btn">記録を保存</button>
+            </div>
+
+            <div class="record-side">
+              <div class="tree-card">
+                <div id="treeVisual" class="tree-visual" aria-label="成長の木"></div>
+                <p id="treeText">練習を積むほど木が育ちます。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel history-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">履歴</p>
+              <h2>AI要約と過去の記録</h2>
+            </div>
+          </div>
+          <div class="history-layout">
+            <div id="historyList" class="history-list"></div>
+            <div class="teacher-card">
+              <div class="panel-heading compact">
+                <div>
+                  <p class="eyebrow">先生モード</p>
+                  <h3>生徒の進捗を一目で確認</h3>
+                </div>
+              </div>
+              <div id="teacherFeed" class="teacher-feed"></div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

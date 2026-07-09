@@ -1,0 +1,371 @@
+:root {
+  color-scheme: dark;
+  --bg: #07131d;
+  --panel: rgba(10, 24, 35, 0.92);
+  --panel-2: #10263b;
+  --line: rgba(255, 255, 255, 0.12);
+  --text: #f2f7ff;
+  --muted: #8fa4b7;
+  --accent: #4fd1c5;
+  --accent-2: #ff8a3d;
+  --accent-3: #8f7cfb;
+  --shadow: 0 18px 45px rgba(0, 0, 0, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", "Hiragino Sans", "Noto Sans JP", sans-serif;
+  background: linear-gradient(135deg, #07131d 0%, #11263b 100%);
+  color: var(--text);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.app-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(10px);
+  margin-bottom: 24px;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.75rem;
+  color: var(--accent);
+  margin: 0 0 8px;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 3vw, 3rem);
+  margin: 0;
+}
+
+.hero-copy {
+  color: var(--muted);
+  max-width: 640px;
+  margin-top: 10px;
+}
+
+.hero-badge {
+  padding: 14px 18px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: #031017;
+  font-weight: 700;
+}
+
+.dashboard {
+  display: grid;
+  gap: 20px;
+}
+
+.panel {
+  border-radius: 24px;
+  padding: 22px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.panel-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.panel-heading.compact {
+  margin-bottom: 10px;
+}
+
+.panel-heading h2,
+.panel-heading h3 {
+  margin: 0;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.summary-card {
+  background: var(--panel-2);
+  border-radius: 18px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.summary-card.accent {
+  background: linear-gradient(135deg, rgba(79, 209, 197, 0.18), rgba(143, 124, 251, 0.24));
+}
+
+.summary-label {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.summary-card strong {
+  font-size: 1.5rem;
+}
+
+.summary-card small {
+  color: var(--muted);
+}
+
+.status-pill {
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(79, 209, 197, 0.14);
+  color: var(--accent);
+  font-size: 0.9rem;
+}
+
+.coach-layout,
+.record-layout,
+.history-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+}
+
+.chat-card,
+.record-form,
+.teacher-card,
+.tree-card,
+.mini-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 16px;
+}
+
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  color: var(--muted);
+}
+
+.chat-messages {
+  display: grid;
+  gap: 10px;
+  min-height: 260px;
+  max-height: 320px;
+  overflow: auto;
+  margin-bottom: 12px;
+}
+
+.bubble {
+  padding: 10px 12px;
+  border-radius: 14px;
+  max-width: 85%;
+  line-height: 1.5;
+}
+
+.bubble.ai {
+  background: rgba(79, 209, 197, 0.16);
+  border-top-left-radius: 4px;
+}
+
+.bubble.user {
+  background: rgba(255, 138, 61, 0.2);
+  margin-left: auto;
+  border-top-right-radius: 4px;
+}
+
+.chat-form {
+  display: flex;
+  gap: 8px;
+}
+
+.chat-form input {
+  flex: 1;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  padding: 10px 12px;
+  border-radius: 10px;
+}
+
+.chat-form button,
+.primary-btn {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 14px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: #031017;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.mini-card + .mini-card {
+  margin-top: 12px;
+}
+
+.mini-card p {
+  margin: 10px 0 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.record-form {
+  display: grid;
+  gap: 14px;
+}
+
+.record-form label {
+  display: grid;
+  gap: 8px;
+}
+
+input[type="range"] {
+  width: 100%;
+  accent-color: var(--accent);
+}
+
+.toggle-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.tree-visual {
+  min-height: 220px;
+  display: grid;
+  place-items: center;
+  font-size: 5rem;
+  transition: transform 0.3s ease;
+}
+
+.tree-visual.grow {
+  animation: pulse 0.7s ease;
+}
+
+.tree-card p {
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.6;
+}
+
+.history-list {
+  display: grid;
+  gap: 12px;
+}
+
+.history-item {
+  padding: 14px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid var(--line);
+}
+
+.history-item h4 {
+  margin: 0 0 8px;
+}
+
+.history-item p {
+  margin: 4px 0;
+  color: var(--muted);
+}
+
+.teacher-feed {
+  display: grid;
+  gap: 10px;
+}
+
+.teacher-item {
+  padding: 12px;
+  border-radius: 14px;
+  background: rgba(79, 209, 197, 0.12);
+}
+
+.teacher-item .comment-btns {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.teacher-item button {
+  border: none;
+  border-radius: 999px;
+  padding: 6px 10px;
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.sparkle {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.sparkle span {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fff7a6;
+  animation: sparkle-fall 1s ease forwards;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.95); }
+  50% { transform: scale(1.04); }
+  100% { transform: scale(1); }
+}
+
+@keyframes sparkle-fall {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(120px) scale(0.2); opacity: 0; }
+}
+
+@media (max-width: 900px) {
+  .coach-layout,
+  .record-layout,
+  .history-layout,
+  .summary-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .app-shell {
+    padding: 14px;
+  }
+
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .chat-form {
+    flex-direction: column;
+  }
+}
